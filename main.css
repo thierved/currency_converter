@@ -1,5 +1,21 @@
-/* background: rgb(35, 47, 72) */
+/*  */
 
 /* select: rgb(45, 70, 94) */
 
 /* output: rgb(44, 57, 81) */
+h2, select, input, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(131, 134, 146);
+    text-align: center;
+}
+
+.container {
+    width: 50%;
+    height: 250px;
+    margin: auto;
+    background: rgb(35, 47, 72);
+}
