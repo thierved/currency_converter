@@ -1,21 +1,87 @@
-/*  */
 
-/* select: rgb(45, 70, 94) */
+* {
+    box-sizing: border-box;
+}
 
-/* output: rgb(44, 57, 81) */
-h2, select, input, body {
+h2 {
     margin: 0;
     padding: 0;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 2rem;
+    padding: 2rem;
 }
 
 body {
-    background: rgb(131, 134, 146);
+    background: rgb(205, 241, 220);
+}
+
+.wrapper {
+    width: 60%;
+    background: rgb(255, 255, 255);
+    box-shadow: 2px 5px 15px -1px rgb(16, 180, 79);
+    height: 350px;
+    padding: 2rem 0;
+    margin: auto;
+}
+
+.user-input {
+    display: block;
+    width: 40%;
+    height: 60px;
+    margin: 1rem auto;
+    font-size: 1.2rem;
     text-align: center;
 }
 
+input[type="button"] {
+    background-color: rgba(18, 143, 56, 0.644);
+    border-radius: 48rem;
+    border: 3px solid rgba(122, 228, 96, 0.562);
+    color: #fff;
+}
+
+input[type="button"]:focus {
+    border: 3px solid rgba(19, 126, 37, 0.753);;
+}
+
 .container {
-    width: 50%;
-    height: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
     margin: auto;
-    background: rgb(35, 47, 72);
+}
+
+.currency {
+    width: 40%;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.container select {    
+    height: 40px;
+    background: rgb(186, 230, 190) !important;
+    color: rgb(117, 117, 117);
+    padding-left: 50px;
+    font-size: 1.3rem;
+}
+
+.container input {
+    height: 60px;
+    padding: 1rem;
+    text-align: right;
+    font-size: 1.5rem;
+    color: rgb(99, 99, 99);   
+}
+
+.container select, input {
+    display: block;
+    width: 100%;
+    background-color: #eee; 
+    border: none;
+}
+
+select:focus, input:focus {
+    outline: none;
 }

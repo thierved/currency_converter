@@ -9,23 +9,29 @@
 </head>
 <body>
     <h2>Currency Converter</h2>
-    <div class="container">
-        <div class="currency">
-            <div class="select">
-                <select name="select" id="select-left"></select>
+    <div class="wrapper">
+        <input type="text" placeholder="0" id="input" class="user-input">
+        <div class="container">
+            <div class="currency">
+                <div class="select">
+                    <select name="select" id="select-left"></select>
+                </div>
+                <div class="input">
+                    <input type="text" id="input-left">
+                </div>
             </div>
-            <div class="input">
-                <input type="text" id="input-left">
+            <span>=</span>
+            <div class="currency">
+                <div class="select">
+                    <select name="select" id="select-right"></select>
+                </div>
+                <div class="input">
+                    <input type="text" id="input-right">
+                </div>
             </div>
         </div>
-        <div class="currency">
-            <div class="select">
-                <select name="select" id="select-right"></select>
-            </div>
-            <div class="input">
-                <input type="text" id="input-right">
-            </div>
-        </div>
+        <input type="button" value="Convert" class="user-input">
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
