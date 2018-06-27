@@ -29,20 +29,28 @@ body {
     display: block;
     width: 40%;
     height: 60px;
+    padding: 10px;
     margin: 1rem auto;
     font-size: 1.2rem;
-    text-align: center;
+    text-align: right;
 }
 
 .wrapper > input[type="button"] {
+    width: 30%;
     background-color: rgba(18, 143, 56, 0.644);
     border-radius: 48rem;
     border: 3px solid rgba(122, 228, 96, 0.562);
     color: #fff;
+    text-align: center;
 }
 
 input[type="button"]:focus {
     border: 3px solid rgba(19, 126, 37, 0.753);;
+}
+
+span {
+    font-weight: bold;
+    font-size: 2rem;
 }
 
 .container {
@@ -63,8 +71,8 @@ input[type="button"]:focus {
     height: 40px;
     background: rgb(186, 230, 190) !important;
     color: rgb(117, 117, 117);
-    padding-left: 50px;
-    font-size: 1.3rem;
+    padding-left: 5px;
+    font-size: 1rem;
 }
 
 .container input {
