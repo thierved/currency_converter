@@ -24,10 +24,15 @@ fetch(url_currencies)
         select_left.innerHTML = currency;
         select_right.innerHTML = currency;                        
     });
+user_input.addEventListener('click', () =>{
+    user_input.value = "";
+    input_left.value = 0;
+    input_right.value = 0;    
+});
 
 convert_button.addEventListener('click', () => {
-    input_left.value = "...";
-    input_right.value = "...";
+    input_left.value = "loading...";
+    input_right.value = "loading...";
 
     from = moneyCode[select_left.options[select_left.selectedIndex].text];
     to = moneyCode[select_right.options[select_right.selectedIndex].text];
@@ -39,7 +44,7 @@ convert_button.addEventListener('click', () => {
             .then(({results}) => {
                 const ratio = results[fromTo].val;
                 input_left.value = user_input.value;
-                input_right.value = input_left.value * ratio;
+                input_right.value = Math.round(input_left.value * ratio * 100)/100;
         });
 
 });

@@ -10,6 +10,7 @@ h2 {
     font-family: sans-serif;
     font-size: 2rem;
     padding: 2rem;
+    color: #006b1786;
 }
 
 body {
@@ -37,6 +38,8 @@ body {
 
 .wrapper > input[type="button"] {
     width: 30%;
+    height: 50px;
+    padding: 5px;
     background-color: rgba(18, 143, 56, 0.644);
     border-radius: 48rem;
     border: 3px solid rgba(122, 228, 96, 0.562);
@@ -45,7 +48,7 @@ body {
 }
 
 input[type="button"]:focus {
-    border: 3px solid rgba(19, 126, 37, 0.753);;
+    border: 3px solid #d2d2d2;
 }
 
 span {
@@ -69,8 +72,8 @@ span {
 
 .container select {    
     height: 40px;
-    background: rgb(186, 230, 190) !important;
-    color: rgb(117, 117, 117);
+    background: rgb(81, 175, 193) !important;
+    color: #fff;
     padding-left: 5px;
     font-size: 1rem;
 }
@@ -92,4 +95,10 @@ span {
 
 select:focus, input:focus {
     outline: none;
+}
+
+@media screen and (max-width: 750px) {
+    .wrapper {
+        width: 90%;
+    }
 }
