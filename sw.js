@@ -4,10 +4,10 @@ self.addEventListener('install', (event) => {
         caches.open('static')
             .then(cache => {
                 cache.addAll([
-                    '/',
-                    '/index.html',
-                    '/main.css',
-                    '/app.js'
+                    './',
+                    './index.html',
+                    './main.css',
+                    './app.js'
                 ])
         })
     );
