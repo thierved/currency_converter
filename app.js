@@ -5,6 +5,12 @@ const input_right = document.getElementById('input-right');
 const convert_button = document.getElementById('convert');
 const user_input = document.getElementById('input');
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+    .then(console.log('registered !') );
+}
+
+
 let from, to ;
 let moneyCode = {};
 
@@ -48,6 +54,7 @@ convert_button.addEventListener('click', () => {
         });
 
 });
+
 
 
 
