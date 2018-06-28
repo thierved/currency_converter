@@ -1,6 +1,5 @@
 
 self.addEventListener('install', (event) => {
-    console.log('sw installed');
     event.waitUntil(
         caches.open('static')
             .then(cache => {
@@ -15,7 +14,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', () => {
-    console.log('sw activated');    
+    
 });
 
 self.addEventListener('fetch', (event) => {
