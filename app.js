@@ -6,8 +6,7 @@ const convert_button = document.getElementById('convert');
 const user_input = document.getElementById('input');
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-    .then(console.log('registered !') );
+    navigator.serviceWorker.register('/sw.js');
 }
 
 
