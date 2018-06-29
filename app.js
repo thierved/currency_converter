@@ -1,3 +1,4 @@
+
 const select_left = document.getElementById('select-left');
 const select_right = document.getElementById('select-right');
 const input_left = document.getElementById('input-left');
@@ -10,6 +11,8 @@ if ('serviceWorker' in navigator) {
 }
 
 
+
+
 let from, to ;
 let moneyCode = {};
 
@@ -20,11 +23,12 @@ const url_currencies = 'https://free.currencyconverterapi.com/api/v5/currencies'
 fetch(url_currencies)
     .then(response => response.json())
         .then(({results}) => {
+                        
         let currency = '';         
         
         for(o in results) {
             currency += `<option>${results[o].currencyName}</option>`;
-            moneyCode[results[o].currencyName] = o;
+            moneyCode[results[o].currencyName] = o;            
         }
         select_left.innerHTML = currency;
         select_right.innerHTML = currency;                        
@@ -49,7 +53,7 @@ convert_button.addEventListener('click', () => {
             .then(({results}) => {
                 const ratio = results[fromTo].val;
                 input_left.value = user_input.value;
-                input_right.value = Math.round(input_left.value * ratio * 100)/100;
+                input_right.value = Math.round(input_left.value * ratio * 1000)/1000;
         });
 
 });
