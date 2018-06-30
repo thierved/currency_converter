@@ -10,6 +10,9 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js');
 }
 
+const dbPromise = idb.open('ratio-db', 1, (upgradeDB) => {
+    upgradeDB.createObjectStore('ratio', {keyPath: 'fromTo'});        
+});
 
 
 
@@ -52,6 +55,14 @@ convert_button.addEventListener('click', () => {
         .then(res => res.json())
             .then(({results}) => {
                 const ratio = results[fromTo].val;
+
+                dbPromise.then(db => {
+                    const tx = db.transaction('ratio', 'readwrite');
+                    const ratesStore = tx.objectStore('ratio');
+                    ratesStore.put({ratio: ratio, fromTo: fromTo});
+                    return tx.complete;
+                });
+
                 input_left.value = user_input.value;
                 input_right.value = Math.round(input_left.value * ratio * 1000)/1000;
         });
