@@ -53,19 +53,36 @@ convert_button.addEventListener('click', () => {
     let url_convert = "https://free.currencyconverterapi.com/api/v5/convert?q="+fromTo;
     fetch(url_convert)
         .then(res => res.json())
-            .then(({results}) => {
-                const ratio = results[fromTo].val;
+            .then(({results}) => {            
 
                 dbPromise.then(db => {
-                    const tx = db.transaction('ratio', 'readwrite');
-                    const ratesStore = tx.objectStore('ratio');
-                    ratesStore.put({ratio: ratio, fromTo: fromTo});
-                    return tx.complete;
-                });
+                    const tx = db.transaction('ratio', 'readonly');
+                    const ratioStore = tx.objectStore('ratio');
+                    return ratioStore.getAll();
+                }).then(val => {
+                    const ratio = (() => {
+                        for (const o of val) {
+                            if (o.fromTo === fromTo) {
+                                console.log(o.ratio, o.fromTo);
+                                return results[fromTo].val || o.ratio;                                                                         
+                            }
+                                                                                
+                        } 
+                        return results[fromTo].val;
+                    })();
+                           
 
-                input_left.value = user_input.value;
-                input_right.value = Math.round(input_left.value * ratio * 1000)/1000;
-        });
+                    input_left.value = user_input.value;
+                    input_right.value = Math.round(input_left.value * ratio * 1000)/1000;
+
+                    dbPromise.then(db => {
+                        const tx = db.transaction('ratio', 'readwrite');
+                        const ratioStore = tx.objectStore('ratio');
+                        ratioStore.put({ratio: ratio, fromTo: fromTo});
+                        return tx.complete;
+                    });
+                })                             
+        })
 
 });
 
