@@ -8,6 +8,7 @@ self.addEventListener('install', (event) => {
                     './index.html',
                     './main.css',
                     './app.js',
+                    './idb.js',
                     'https://free.currencyconverterapi.com/api/v5/currencies'
                 ])
         })
